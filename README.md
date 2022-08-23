@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/MonaElshikh/interactive-comments-section)
-- Live Site URL: [Add live site URL here](https://monaelshikh.github.io/interactive-comments-section)
+- Solution URL: [https://github.com/MonaElshikh/interactive-comments-section]
+- Live Site URL: [https://monaelshikh.github.io/interactive-comments-section]
 
 ### Built with
 
