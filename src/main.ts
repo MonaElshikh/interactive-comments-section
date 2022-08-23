@@ -396,7 +396,7 @@ function addNewComment(buttonName: string) {
       // update the result comments > the current main comment and add the reply to thier replies array
       result.comments.forEach((comment: any) => {
         if (comment.id == _commentObject.id) {
-          comment.replies.push(_replyObject);
+          comment.replies.unshift(_replyObject);
         }
       });
     } else {
@@ -427,6 +427,7 @@ function addNewComment(buttonName: string) {
     // update the local storage and the page.
     addToLocalStorage(result);
     addDataToPage();
+    cancelReply();
     return true;
   } else {
     commentTxt = <HTMLTextAreaElement>document.querySelector("#add-comment");
@@ -447,7 +448,7 @@ function addNewComment(buttonName: string) {
       },
       replies: [],
     };
-    result.comments.push(_commentObject);
+    result.comments.unshift(_commentObject);
     commentTxt.value = "";
     addToLocalStorage(result);
     addDataToPage();

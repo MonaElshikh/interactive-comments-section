@@ -349,7 +349,7 @@ function addNewComment(buttonName) {
             };
             result.comments.forEach((comment) => {
                 if (comment.id == _commentObject.id) {
-                    comment.replies.push(_replyObject);
+                    comment.replies.unshift(_replyObject);
                 }
             });
         }
@@ -380,6 +380,7 @@ function addNewComment(buttonName) {
         }
         addToLocalStorage(result);
         addDataToPage();
+        cancelReply();
         return true;
     }
     else {
@@ -401,7 +402,7 @@ function addNewComment(buttonName) {
             },
             replies: [],
         };
-        result.comments.push(_commentObject);
+        result.comments.unshift(_commentObject);
         commentTxt.value = "";
         addToLocalStorage(result);
         addDataToPage();

@@ -20,7 +20,6 @@ Users should be able to:
 - Create, Read, Update, and Delete comments and replies
 - Upvote and downvote comments
 - **Bonus**: If you're building a purely front-end project, use `localStorage` to save the current state in the browser that persists when the browser is refreshed.
-- **Bonus**: Instead of using the `createdAt` strings from the `data.json` file, try using timestamps and dynamically track the time since the comment or reply was posted.
 
 ### Screenshot
 
@@ -29,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/MonaElshikh/interactive-comments-section)
+- Live Site URL: [Add live site URL here](https://monaelshikh.github.io/interactive-comments-section)
 
 ### Built with
 
@@ -42,7 +41,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Mona Elshikh](https://www.your-site.com)
 - Frontend Mentor - [@MonaElshikh](https://www.frontendmentor.io/profile/MonaElshikh)
 
 ## Acknowledgments
