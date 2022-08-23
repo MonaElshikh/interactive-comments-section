@@ -349,19 +349,15 @@ function addNewComment(buttonName) {
             };
             result.comments.forEach((comment) => {
                 if (comment.id == _commentObject.id) {
-                    comment.replies.unshift(_replyObject);
+                    comment.replies.push(_replyObject);
                 }
             });
         }
         else {
-            console.log(divContainer.className);
             result.comments.forEach((comment) => {
                 if (comment.replies.length > 0) {
                     comment.replies.forEach((reply, index) => {
                         if (reply.id == _commentObject.id) {
-                            console.log("reply index is  >", index);
-                            console.log("reply is >", reply);
-                            console.log("commentis >", comment);
                             let newReply = {
                                 id: Date.now(),
                                 content: commentTxt.value,
@@ -381,11 +377,9 @@ function addNewComment(buttonName) {
                     });
                 }
             });
-            console.log(result.comments);
         }
         addToLocalStorage(result);
         addDataToPage();
-        cancelReply();
         return true;
     }
     else {
@@ -407,7 +401,7 @@ function addNewComment(buttonName) {
             },
             replies: [],
         };
-        result.comments.unshift(_commentObject);
+        result.comments.push(_commentObject);
         commentTxt.value = "";
         addToLocalStorage(result);
         addDataToPage();

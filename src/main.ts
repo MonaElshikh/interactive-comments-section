@@ -396,18 +396,14 @@ function addNewComment(buttonName: string) {
       // update the result comments > the current main comment and add the reply to thier replies array
       result.comments.forEach((comment: any) => {
         if (comment.id == _commentObject.id) {
-          comment.replies.unshift(_replyObject);
+          comment.replies.push(_replyObject);
         }
       });
     } else {
-      console.log(divContainer.className);
       result.comments.forEach((comment: commentObject) => {
         if (comment.replies.length > 0) {
           comment.replies.forEach((reply: replyObject, index) => {
             if (reply.id == _commentObject.id) {
-              console.log("reply index is  >", index);
-              console.log("reply is >", reply);
-              console.log("commentis >", comment);
               let newReply: replyObject = {
                 id: Date.now(),
                 content: commentTxt.value,
@@ -427,12 +423,10 @@ function addNewComment(buttonName: string) {
           });
         }
       });
-      console.log(result.comments);
     }
     // update the local storage and the page.
     addToLocalStorage(result);
     addDataToPage();
-    cancelReply();
     return true;
   } else {
     commentTxt = <HTMLTextAreaElement>document.querySelector("#add-comment");
@@ -453,7 +447,7 @@ function addNewComment(buttonName: string) {
       },
       replies: [],
     };
-    result.comments.unshift(_commentObject);
+    result.comments.push(_commentObject);
     commentTxt.value = "";
     addToLocalStorage(result);
     addDataToPage();
