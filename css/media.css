@@ -1,0 +1,105 @@
+@media (min-width:992px) {
+   textarea:hover {
+    border-color: var(--moderate-blue);
+   }
+    .comments {
+    position: relative;
+    width: 60vw;
+    margin-inline: auto;
+    }
+    .comment ,
+    .reply,
+    .add-comment  {
+       display: flex;
+       align-items: flex-start;
+       position: relative;
+    }
+    .comment-data, 
+    .reply-data {
+      order:2;
+    }
+    .comment-footer,
+    .reply-footer {
+      align-items: stretch;
+    }
+    .score {
+     flex-direction: column;
+     width: 45px;
+     height: 115px;
+     margin-right: 30px;
+        }
+    .reply {
+        margin-left: 40px;
+    }
+    .reply-section ,
+    .actions {
+        position: absolute;
+        right: 20px;
+        top: 30px;
+    }
+    .score > span:not(:nth-child(2)) {
+        cursor: pointer;
+    }
+    .actions > div >  button 
+    {
+        cursor: pointer;
+    }
+    .reply-section > img , .reply-section > button {
+        cursor: pointer;
+    }
+    .add-comment {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: fit-content;
+    }
+    .add-comment > textarea {
+        margin-left: 55px;
+        width:615px;
+    }
+    .add-comment > img {
+        top: 35px;
+        left: 15px;
+    }
+    .add-comment .img-btn > button {
+        right: 20px;
+        bottom: 55%;
+    }
+    .add-comment.pop {
+        margin-top: 300px;
+        width: 750px;
+        margin-inline: auto;
+    }
+    .add-comment.pop .img-btn {
+      display: block;
+      text-align: right;
+        margin-top: 0;
+    }
+    .add-comment.pop .img-btn > button {
+        position: relative;
+        margin: 0 !important;
+        width: 100px !important;
+        padding: 12px 5px!important;
+    }
+    .add-comment.pop .img-btn > button:first-child {
+        margin-bottom: 10px !important;
+    }
+    .edit-mode {
+        display: block;
+        margin-bottom: 0;
+        text-align: right;
+    }
+    .edit-mode > button {
+        margin-top: 10px;
+    }
+    .replies{
+     margin-left: 45px;
+    }
+    .modal-content {
+        width: 420px !important;
+        margin: 300px auto !important;
+    }
+    .actions-button > button {
+        width: 180px;
+    }
+}

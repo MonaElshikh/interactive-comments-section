@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive Comments App | Mona Elshikh"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="preload"
+      as="style"
+      href="css/model-popup.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="css/media.css"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <title>Interactive Comments App | Mona Elshikh</title>
+  </head>
+  <body>
+    <section id="del-modal" class="modal"></section>
+    <div class="container" role="main">
+      <div class="comments">
+        <!-- <div class="comment">
+          <div class="comment-data">
+            <div class="comment-header">
+              <img src="images/avatars/image-amyrobson.webp" alt="amyrobson" />
+              <h2>amyrobson</h2>
+              <h3>1 month ago</h3>
+            </div>
+            <div class="comment-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusantium porro suscipit assumenda deleniti est vero
+                distinctio quod hic, ipsa, aspernatur maiores ab cumque soluta
+                cum iure ex adipisci? Sunt, explicabo!
+              </p>
+            </div>
+          </div>
+          <div class="comment-footer">
+            <div class="score"><span>+</span><span>12</span><span>-</span></div>
+            <div class="reply-section">
+              <img src="images/icon-reply.svg" alt="reply" /><button class="btn-reply">
+                Reply
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comment-data">
+            <div class="comment-header">
+              <img src="images/avatars/image-maxblagun.webp" alt="maxblagun" />
+              <h2>macxblagun</h2>
+              <h3>2 weeks ago</h3>
+            </div>
+            <div class="comment-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusantium porro suscipit assumenda deleniti est vero
+                distinctio quod hic, ipsa, aspernatur maiores ab cumque soluta
+                cum iure ex adipisci? Sunt, explicabo!
+              </p>
+            </div>
+          </div>
+          <div class="comment-footer">
+            <div class="score"><span>+</span><span>12</span><span>-</span></div>
+            <div class="reply-btn">
+              <img src="images/icon-reply.svg" alt="reply" /><button>
+                Reply
+              </button>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="replies">
+          <div class="reply">
+            <div class="reply-data">
+              <div class="reply-header">
+                <img
+                  src="images/avatars/image-ramsesmiron.webp"
+                  alt="ramsesmiron"
+                />
+                <h2>ramsesmiron</h2>
+                <h3>1 weeks ago</h3>
+              </div>
+              <div class="reply-body">
+                <p>
+                  <span class="replied-to">@macxblagun</span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam sequi quidem ipsum aliquid repellat ad assumenda
+                  harum quas? Optio, expedita? Cupiditate culpa odio porro minus
+                  ratione fugiat quibusdam! Dolores, fugit!
+                </p>
+              </div>
+            </div>
+            <div class="reply-footer">
+              <div class="score">
+                <span>+</span><span>12</span><span>-</span>
+              </div>
+              <div class="reply-btn">
+                <img src="images/icon-reply.svg" alt="reply" /><button>
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="reply">
+            <div class="reply-data">
+              <div class="reply-header">
+                <img
+                  src="images/avatars/image-juliusomo.webp"
+                  alt="juliusomo"
+                />
+                <h2>juliusomo <span class="current-user">you</span></h2>
+                <h3>2 days ago</h3>
+              </div>
+              <div class="reply-body">
+                <p>
+                  <span class="replied-to">@amyrobson</span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam sequi quidem ipsum aliquid repellat ad assumenda
+                  harum quas? Optio, expedita? Cupiditate culpa odio porro minus
+                  ratione fugiat quibusdam! Dolores, fugit!
+                </p>
+                <textarea class="reply-txt"></textarea>
+              </div>
+            </div>
+            <div class="reply-footer">
+              <div class="score">
+                <span>+</span><span>12</span><span>-</span>
+              </div>
+              <div class="actions">
+                <div class="delete">
+                  <img src="images/icon-delete.svg" alt="delete" />
+                  <button>Delete</button>
+                </div>
+                <div class="edit">
+                  <img src="images/icon-edit.svg" alt="edit" />
+                  <button>Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="add-comment">
+          <textarea
+            name="add-comment"
+            id="add-comment"
+            placeholder="Add comment..."
+          ></textarea>
+          <div class="img-btn">
+            <img src="images/avatars/image-juliusomo.webp" alt="juliusomo" />
+            <button class="btn-send">Send</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>
