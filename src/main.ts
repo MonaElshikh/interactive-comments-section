@@ -13,7 +13,9 @@ let mainContainer = <HTMLElement>document.querySelector(".container");
 let divContainer: any;
 //#endregion
 //#region Functions
-function addToLocalStorage(source: {}) {
+function addToLocalStorage(source: commentApp) {
+  // sort comments according to score.
+  source.comments = source.comments.sort((a, b) => b.score - a.score);
   localStorage.setItem("comment-app", JSON.stringify(source));
 }
 function getFromLocalStorage() {
@@ -24,6 +26,7 @@ function getFromLocalStorage() {
 }
 // function to create elements and add it to the page dom.
 function addDataToPage() {
+  console.log(result);
   commentsDiv.innerHTML = "";
   // get data from local storage
   let data: commentApp = getFromLocalStorage();
@@ -251,7 +254,6 @@ function cancelReply() {
 // function to open edit mode
 function openEditBox(event: any) {
   // get the parent comment or reply div
-  console.log(event.target);
   divContainer = event.target.parentNode.parentNode.parentNode.parentNode;
   //hide comment paragraph and show edit mode div and bind vlaues
   let commentParagraph = divContainer.querySelector("P");
@@ -266,7 +268,6 @@ function openEditBox(event: any) {
     _commentObject = result.comments.filter(
       (comment: commentObject) => comment.id == divContainer.dataset.index
     )[0];
-    console.log("from if comment section", _replyObject);
   } else {
     result.comments.forEach((comment: any) => {
       _replyObject = comment.replies.filter(
@@ -354,15 +355,17 @@ function updateScore(event: any) {
     });
   }
   addToLocalStorage(result);
+  addDataToPage();
 }
 //#region  CRUD Operations
 // function to load data from json file.
-async function lodaData() {
+async function loadDate() {
   if (getFromLocalStorage()) {
     result = getFromLocalStorage();
   } else {
     let data = (await fetch(url)).json();
     result = await data;
+
     addToLocalStorage(result);
   }
   addDataToPage();
@@ -396,7 +399,7 @@ function addNewComment(buttonName: string) {
       // update the result comments > the current main comment and add the reply to thier replies array
       result.comments.forEach((comment: any) => {
         if (comment.id == _commentObject.id) {
-          comment.replies.unshift(_replyObject);
+          comment.replies.push(_replyObject);
         }
       });
     } else {
@@ -448,11 +451,11 @@ function addNewComment(buttonName: string) {
       },
       replies: [],
     };
-    result.comments.unshift(_commentObject);
+    result.comments.push(_commentObject);
     commentTxt.value = "";
     addToLocalStorage(result);
     addDataToPage();
-    mainContainer.scrollIntoView({ behavior: "smooth" });
+    // mainContainer.scrollIntoView({ behavior: "smooth" });
     return true;
   }
 }
@@ -481,6 +484,7 @@ function updateComment(
     }
   });
   addToLocalStorage(result);
+  addDataToPage();
   cancelEditMode();
 }
 // function to delete comment
@@ -506,6 +510,6 @@ function deleteComment() {
 //#endregion
 //#endregion
 //#region Calls
-lodaData();
+loadDate();
 deletePopupEventsHandler();
 //#endregion

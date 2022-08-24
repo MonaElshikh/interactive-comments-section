@@ -17,6 +17,7 @@ let currentUser;
 let mainContainer = document.querySelector(".container");
 let divContainer;
 function addToLocalStorage(source) {
+    source.comments = source.comments.sort((a, b) => b.score - a.score);
     localStorage.setItem("comment-app", JSON.stringify(source));
 }
 function getFromLocalStorage() {
@@ -26,6 +27,7 @@ function getFromLocalStorage() {
     return false;
 }
 function addDataToPage() {
+    console.log(result);
     commentsDiv.innerHTML = "";
     let data = getFromLocalStorage();
     currentUser = data.currentUser.username;
@@ -227,7 +229,6 @@ function cancelReply() {
     (_a = mainContainer.querySelector(".overly")) === null || _a === void 0 ? void 0 : _a.remove();
 }
 function openEditBox(event) {
-    console.log(event.target);
     divContainer = event.target.parentNode.parentNode.parentNode.parentNode;
     let commentParagraph = divContainer.querySelector("P");
     let commentEditModeTxt = divContainer.querySelector(".edit-mode");
@@ -237,7 +238,6 @@ function openEditBox(event) {
     commentParagraph.classList.add("hide");
     if (divContainer.className == "comment") {
         _commentObject = result.comments.filter((comment) => comment.id == divContainer.dataset.index)[0];
-        console.log("from if comment section", _replyObject);
     }
     else {
         result.comments.forEach((comment) => {
@@ -311,8 +311,9 @@ function updateScore(event) {
         });
     }
     addToLocalStorage(result);
+    addDataToPage();
 }
-function lodaData() {
+function loadDate() {
     return __awaiter(this, void 0, void 0, function* () {
         if (getFromLocalStorage()) {
             result = getFromLocalStorage();
@@ -349,7 +350,7 @@ function addNewComment(buttonName) {
             };
             result.comments.forEach((comment) => {
                 if (comment.id == _commentObject.id) {
-                    comment.replies.unshift(_replyObject);
+                    comment.replies.push(_replyObject);
                 }
             });
         }
@@ -402,11 +403,10 @@ function addNewComment(buttonName) {
             },
             replies: [],
         };
-        result.comments.unshift(_commentObject);
+        result.comments.push(_commentObject);
         commentTxt.value = "";
         addToLocalStorage(result);
         addDataToPage();
-        mainContainer.scrollIntoView({ behavior: "smooth" });
         return true;
     }
 }
@@ -431,6 +431,7 @@ function updateComment(comment, reply, hasReply = false) {
         }
     });
     addToLocalStorage(result);
+    addDataToPage();
     cancelEditMode();
 }
 function deleteComment() {
@@ -447,6 +448,6 @@ function deleteComment() {
     addToLocalStorage(result);
     addDataToPage();
 }
-lodaData();
+loadDate();
 deletePopupEventsHandler();
 //# sourceMappingURL=main.js.map
